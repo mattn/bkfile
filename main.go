@@ -32,7 +32,12 @@ func main() {
 		base, name := filepath.Split(from)
 		ext := filepath.Ext(name)
 		if ext != "" {
-			ext = ext[1:]
+			if len(name) == len(ext) {
+				name = ext
+				ext = ""
+			} else {
+				ext = ext[1:]
+			}
 		}
 
 		var unk string
