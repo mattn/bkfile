@@ -67,7 +67,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "%s: unknown variable ${%s}\n", os.Args[0], unk)
 			os.Exit(1)
 		}
-		to = filepath.ToSlash(to)
+		to = filepath.FromSlash(to)
 
 		n := 1
 		for {
