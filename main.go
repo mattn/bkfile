@@ -6,6 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"time"
+
+	"github.com/mattn/fsutil"
 )
 
 var (
@@ -82,7 +84,7 @@ func main() {
 				n++
 				continue
 			}
-			if err = copyFile(from, target); err != nil {
+			if err = fsutil.CopyFile(target, from); err != nil {
 				fmt.Fprintf(os.Stderr, "%s: %s\n", os.Args[0], err)
 				os.Exit(1)
 			}
